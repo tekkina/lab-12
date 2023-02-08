@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> MIU ::: E-registration system</title>
+    <link rel ="stylesheet" th:href="@{/css/common.css}" type="text/css">
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<main>
+    <h1>System Administration</h1>
+    <section>
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/get/info/list">Edit Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/get/info/new">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/menu">Go Back</a>
+                    </li>
+                </ul>
+            </div>
+            <nav class="navbar navbar-light bg-light">
+                <form class="form-inline" action="/get/info/search" method="get">
+                    <fieldset>
+                        <legend id="search" style="font-weight: bolder;">Search for Student</legend>
+                        <label>
+                            You may search by Student's Name or Id
+                        </label>
+                        <input class="form-control mr-sm-2" type="search"  name="searchString" id ="searchString"
+                               th:value="${searchString}" placeholder="Enter student's name or Id" aria-label="Search"><br>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search student</button>
+                    </fieldset>
+                </form>
+            </nav>
+        </div>
+    </section>
+</main>
+<footer  th:replace="fragments/footer  ::footer"></footer>
+</body>
+</html>

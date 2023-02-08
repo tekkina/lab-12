@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Management:: Home</title>
+  <link rel ="stylesheet" th:href="@{/css/common.css}" type="text/css">
+</head>
+<body>
+
+<header th:replace="fragments/header ::header"></header>
+<main class="shift">
+  <h1>Student Form Page</h1>
+  <form id="studentForm" method="post" action="/get/info/update" th:object="${student}">
+    <fieldset>
+      <section class="container">
+        <div class="row">
+        <input type="hidden" id ="studentId" name="studentId" th:value="${student.studentId}">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="studentNumber">*Student number:</label>
+              <span th:if="${#fields.hasErrors('studentNumber')}" th:errors="*{studentNumber}"
+                    class="alert alert-danger"></span>
+<!--              <input type="text" class="form-control" th:field="*{studentNumber}">-->
+              <input id="studentNumber" name="studentNumber" type="text" class="form-control"
+                     th:value="${student.studentNumber}" autofocus>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="firstName">*First name:</label>
+              <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+                    class="alert alert-danger"></span>
+              <input id ="firstName" name="firstName" type="text" class="form-control" th:value="${student.firstName}" autofocus>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="middleName">*Middle name:</label>
+              <span th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}"
+                    class="alert alert-danger"></span>
+              <input id ="middleName" name = "middleName" type="text" class="form-control"
+                     th:value="${student.middleName}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="lastName">last name:</label>
+              <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                    class="alert alert-danger"></span>
+              <input id = "lastName" name="lastName" type="text" class="form-control"
+                     th:value="${student.lastName}" autofocus>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label th:for="degreeTitle">degreeTitle:</label>
+              <span th:if="${#fields.hasErrors('transcripts.degreeTitle')}" th:errors="*{transcripts.degreeTitle}"
+                    class="alert alert-danger"></span>
+              <input id ="degreeTitle" name ="degreeTitle" type="text" class="form-control"
+                     th:value="${student.transcripts.degreeTitle}" autofocus>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label th:for="cgp">cgp:</label>
+              <span th:if="${#fields.hasErrors('cgp')}" th:errors="*{cgp}"
+                    class="alert alert-danger"></span>
+              <input id = "cgp" name="cgp" type="number" step="0.1" min="0" max="4.0"  class="form-control"
+                     th:value="${student.cgp}" autofocus>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label th:for="buildingName">Building Name:</label>
+              <span th:if="${#fields.hasErrors('primaryClassroom.buildingName')}" th:errors="*{primaryClassroom.buildingName}"
+                    class="alert alert-danger"></span>
+              <input id = "buildingName" name ="primaryClassroom.buildingName" type="text" class="form-control"
+                     th:field="*{primaryClassroom.buildingName}">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label th:for="roomNumber">Room No. </label>
+              <span th:if="${#fields.hasErrors('primaryClassroom.roomNumber')}" th:errors="*{primaryClassroom.roomNumber}"
+                    class="alert alert-danger"></span>
+              <input id="roomNumber" name="roomNumber " type="text" class="form-control" th:field="*{primaryClassroom.roomNumber}">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label th:for="${'dateOfEnrollment'}">date Of Enrollment:</label>
+            <span th:if="${#fields.hasErrors('dateOfEnrollment')}" th:errors="*{dateOfEnrollment}"
+                  class="alert alert-danger"></span>
+            <input type="date" class="form-control" th:field="*{dateOfEnrollment}">
+          </div>
+        </div>
+      </div>
+      </section><br>
+      <div>
+        <div style="justify-content:center">
+          <a href="/get/info/list" class="btn btn-outline-danger" style="margin-right: 2em;">Cancel</a>
+          <button id="btnSubmit" type="submit" class="btn btn-outline-success"> Confirm Change</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</main>
+
+</body>
+</html>

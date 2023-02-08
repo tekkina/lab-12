@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Management :: Menu page </title>
+    <link th:href ="@{/css/menu.css}" rel ="stylesheet" type="text/css">
+</head>
+<body>
+
+<header  th:replace="fragments/header  ::header"></header><br>
+<main>
+  <div class="in-line">
+     <div class="in-line-b"> <img  th:src ="@{/images/img.jpg}" alt = "Argiro building"></div>
+      <div class="in-line-a"><ul class="list-group ul-a">
+         <li  class="list-group-item li-a"><a class="li-a" style="text-decoration: none;" href="/list">Students List</a></li>
+         <li class="list-group-item li-a"><a class="li-a" style="text-decoration: none;" href="/new">Registration</a></li>
+         <li class="list-group-item li-a"><a class ="li-a" style="text-decoration: none;" href="/showsearch">Search </a></li>
+<!--         <li class="list-group-item li-a"><a class= "li-a" style="text-decoration: none;" href="/edit/{studentId}">Edit profile</a></li>-->
+     </ul></div>
+  </div>
+</main>
+<footer  th:replace="fragments/footer  ::footer"></footer>
+</body>
+</html>

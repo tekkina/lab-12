@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Student E-Registration System :: Home</title>
+    <link rel ="stylesheet" th:href="@{/css/home.css}" type="text/css">
+</head>
+<body>
+<header  th:replace="fragments/header  ::header"></header><br>
+<main>
+    <div class="col-md-12">
+        <p class="welcome"><b>Welcome To Maharishi International University</b></p> <br>
+            <div class="col-md-12" >
+          <img alt = "Argiro building" class="div-image" th:src ="@{/images/img.jpg}">
+            </div>
+            <p class="description">  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, consequuntur delectus
+                deleniti dolorem doloribus eius eos est et fugit in iure mollitia, necessitatibus numquam omnis pariatur
+                praesentium, quidem recusandae sapiente tempora temporibus ullam ut velit voluptatibus. Delectus fuga
+                harum iure laboriosam laudantium magni minus modi necessitatibus nisi nobis numquam omnis pariatur quam
+                quia quisquam quo recusandae sequi sit tempora, tempore? Doloremque eaque sequi voluptas. Aut commodi
+                eum fugit laboriosam minima neque nobis quam, repellendus. Accusantium at atque aut consequatur illum
+                ipsam magni numquam obcaecati placeat, quos sunt temporibus! Architecto, asperiores autem blanditiis
+                delectus dignissimos doloribus eaque earum qui quos recusandae!</p>
+        </div>
+</main>
+<footer  th:replace="fragments/footer  ::footer"></footer>
+</body>
+</html>

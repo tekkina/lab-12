@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> MIU ::: E-registration system</title>
+    <link rel ="stylesheet" th:href="@{/css/common.css}" type="text/css">
+</head>
+<body>
+<header th:replace="fragments/header :: header"></header>
+<main>
+    <h1>System Administration</h1>
+    <section>
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/get/info/list">Edit Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/get/info/new">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/menu">Go Back</a>
+                    </li>
+                </ul>
+            </div>
+            <nav class="navbar navbar-light bg-light">
+                <form class="form-inline" action="/get/info/search" method="get">
+                    <fieldset>
+                        <legend id="search" style="font-weight: bolder;">Search for Student</legend>
+                        <label>
+                            You may search by Student's Name or Id
+                        </label>
+                        <input class="form-control mr-sm-2" type="search"  name="searchString" id ="searchString"
+                               th:value="${searchString}" placeholder="Enter student's name or Id" aria-label="Search"><br>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search student</button>
+                    </fieldset>
+                </form>
+            </nav>
+        </div>
+    </section>
+<!--#####################################################################-->
+    <section style="margin-top: 1em;">
+<!--        <div th:switch = "${students.isEmpty()}">-->
+<!--        <div th:case="false">-->
+        <div th:if="${!students.isEmpty()}">
+        <table style="border:1px; padding:20px;">
+            <thead>
+            <tr class="tr-line">
+                <th>#</th>
+                <th class="gap">Student Number</th>
+                <th class="gap">First Name </th>
+                <th class="gap">Middle Name </th>
+                <th class="gap">Last Name </th>
+                <th class="gap">GPA</th>
+                <th class="gap">Date of Enrollment </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="tr-line" th:each="student, counter: ${students}" style="border:1px solid black">
+                <th class="gap" th:text="${counter.count}"></th>
+                <td class="gap" th:text="${student.studentNumber}"></td>
+                <td class="gap" th:text="${student.firstName}"></td>
+                <td class="gap" th:text="${student.middleName}"></td>
+                <td class="gap" th:text="${student.lastName}"></td>
+                <td class="gap" th:text="${student.cgp}"></td>
+                <td class="gap" th:text="${student.dateOfEnrollment}"></td>
+
+            </tbody>
+        </table>
+        </div>
+        <div th:if="${students.isEmpty()}">
+            <b>Student not found!!</b>
+        </div>
+    </section>
+</main>
+<footer  th:replace="fragments/footer  ::footer"></footer>
+</body>
+</html>
