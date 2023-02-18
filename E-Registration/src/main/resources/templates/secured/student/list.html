@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>MIU :: Student E-registration </title>
+  <link rel ="stylesheet" th:href="@{/css/common}" type="text/css">
+</head>
+<body>
+<header th:replace="fragments/header ::header"></header>
+<div style="width: 100%;">
+  <h1 style="display: inline;margin-left:25vw">Registered students on file</h1>
+  <span style="float: right;margin-right:10vw;"><h1>
+                <a class="btn btn-outline-secondary btn-lg" href="/get/info/new">
+                    <i class="fa-brands fa-product-hunt"></i> Register Student</a></h1>
+  </span>
+</div>
+<hr/>
+<div>
+<div style="font-size: 1em">
+<section style= "width:70vw; margin-left:5vw">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Student number</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Middle Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">CGP</th>
+      <th scope="col">Enrollment Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  th:each="student, counter: ${students}">
+      <th th:text="${counter.count}"></th>
+      <td th:text="${student.studentNumber}"></td>
+      <td th:text="${student.firstName}"></td>
+      <td th:text="${student.middleName}"></td>
+      <td th:text="${student.lastName}"></td>
+      <td th:text="${student.cgp}"></td>
+      <th th:text ="${student.dateOfEnrollment}"></th>
+      <td>
+        <a th:href="@{'/info/edit/{studentId}'(studentId=${student.studentId})}">
+          <button type="button" class="btn btn-success" style="width:5vw">Edit </button>
+        </a>
+        <a th:href="@{'/get/info/delete/{studentId}'(studentId=${student.studentId})}">
+      <button type="button" class="btn btn-danger" style = "width:8vw"> Delete</button>
+        </a>
+      </td>
+    </tr>
+    <tr th:if="${students.isEmpty()}"><td colspan="8" th:align="center">No Students found</td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+</div>
+</div>
+<footer th:replace="fragments/footer  ::footer"></footer>
+</body>
+</html>
